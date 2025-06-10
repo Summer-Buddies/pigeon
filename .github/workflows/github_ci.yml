@@ -27,7 +27,7 @@ jobs:
           python -m venv venv
           source venv/bin/activate
           pip install --upgrade pip
-          pip install -r backend/app/requirements.txt
+          pip install -r backend/requirements.txt
 
       - name: Create .env file from secrets
         run: |
