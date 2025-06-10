@@ -8,7 +8,7 @@ app = FastAPI()
 
 load_dotenv()  # take environment variables from .env.
 
-FIREBASE_KEY = os.getenv("FIREBASE_KEY")
+FIREBASE_PRIVATE_KEY = os.getenv("FIREBASE_PRIVATE_KEY")
 
 app.include_router(api_router)
 app.include_router(ws_router)
