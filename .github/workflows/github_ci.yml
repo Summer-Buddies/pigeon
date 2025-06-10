@@ -22,18 +22,14 @@ jobs:
         with:
           python-version: 3.11
 
-      - name: Install dependencies
+      - name: Install dependencies and run app
+        working-directory: backend
         run: |
           python -m venv venv
           source venv/bin/activate
           pip install --upgrade pip
-          pip install -r backend/requirements.txt
+          pip install -r requirements.txt
 
-      - name: Create .env file from secrets
-        run: |
           echo "FIREBASE_PRIVATE_KEY=${FIREBASE_PRIVATE_KEY}" >> .env
-
-      - name: Run app or tests (example)
-        run: |
-          source venv/bin/activate
-          python backend/app/main.py  # or uvicorn main:app --reload or pytest, etc.
+          
+          python -m app.main
