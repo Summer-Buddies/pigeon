@@ -10,8 +10,8 @@ const Chat = () => {
   return (
     <div>
       <h1>Chat page</h1>
-      <button onClick={dummy} type="button" class="btn btn-primary">Login</button>
-    </div>
+      <button onClick={dummy} type="button" className="btn btn-primary">Login</button>
+      </div>
   )
 }
 
