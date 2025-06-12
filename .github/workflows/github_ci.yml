@@ -32,5 +32,4 @@ jobs:
 
           echo "FIREBASE_PRIVATE_KEY=${FIREBASE_PRIVATE_KEY}" >> .env
           
-          export PYTHONPATH=$GITHUB_WORKSPACE/backend
-          python -m app.main
+          python main.py
