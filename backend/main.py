@@ -10,6 +10,9 @@ from app.api.routes import router as api_router
 from app.socket.manager import ws_router
 import os
 
+# websocket stuff
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
 
 cred = credentials.Certificate({

@@ -1,5 +1,6 @@
 from fastapi import WebSocket, APIRouter, WebSocketDisconnect
 
+
 ws_router = APIRouter()
 connected_clients = set()
 
