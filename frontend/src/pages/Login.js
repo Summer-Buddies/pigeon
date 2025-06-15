@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { auth } from '../firebase'
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import './Auth.css';
 
 const Login = () => {
 
@@ -41,26 +42,44 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Login page</h1>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" className="btn btn-primary">Login</button>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-      </form>
+    <div className='auth-page'>
+      <h1 className='auth-title'>Pigeon</h1>
+      
+      <div className='auth-box'>
+        <div className='auth-form'>
+          <form onSubmit={handleLogin}>
+            
+            <label>Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className='input-box'
+            />
+            
+            <label>Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className='input-box'
+            />
+
+            <div className='auth-submission'>
+              <button type="submit" className="button orange-button">Login</button>
+              {error && <p style={{ color: 'red' }}>{error}</p>}
+              <div className='auth-text'>
+                Don't have an account? <a href="/">Sign Up</a>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div className='mascot'>
+          <img src='logo192.png' alt='pigeon mascot'/>
+        </div>
+      </div>
     </div>
   );
 };
