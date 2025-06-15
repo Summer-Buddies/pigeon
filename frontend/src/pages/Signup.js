@@ -1,37 +1,41 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { auth } from '../firebase'
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import './Auth.css';
 
-const Login = () => {
+const Signup = () => {
 
   const navigate = useNavigate()
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     setError(null);
 
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      console.log("Logged in user:", userCredential.user);
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        await updateProfile(userCredential.user, {
+            displayName: name
+        })
+        console.log("Signed up user:", userCredential.user);
 
-      //Get the ID token
-      const idToken = await userCredential.user.getIdToken();
-      console.log("ID Token:", idToken);
+        //Get the ID token
+        const idToken = await userCredential.user.getIdToken();
+        console.log("ID Token:", idToken);
 
-      //Example: send token to backend
-      const response = await fetch("http://3.14.4.195:8000/secure-route", {
+        //Example: send token to backend
+        const response = await fetch("http://3.14.4.195:8000/secure-route", {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${idToken}`
+            Authorization: `Bearer ${idToken}`
         }
-      });
-      const data = await response.json();
-      console.log("Backend response:", data);
+        });
+        const data = await response.json();
+        console.log("Backend response:", data);
 
       //Navigate to the chat page on success
       navigate('/chat');
@@ -47,8 +51,17 @@ const Login = () => {
       
       <div className='auth-box'>
         <div className='auth-form'>
-          <form onSubmit={handleLogin}>
+          <form onSubmit={handleSignup}>
             
+            <label>Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className='input-box'
+            />
+
             <label>Email</label>
             <input
               type="email"
@@ -68,10 +81,10 @@ const Login = () => {
             />
 
             <div className='auth-submission'>
-              <button type="submit" className="button orange-button">Login</button>
+              <button type="submit" className="button orange-button">Sign up</button>
               {error && <p style={{ color: 'red' }}>{error}</p>}
               <div className='auth-text'>
-                Don't have an account? <a href="/signup">Sign Up</a>
+                Already have an account? <a href="/">Login</a>
               </div>
             </div>
           </form>
@@ -84,4 +97,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
