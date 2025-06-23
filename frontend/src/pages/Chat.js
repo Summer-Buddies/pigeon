@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import '../components/SidePanel.js'
+import SidePanel from '../components/SidePanel.js';
+import './Chat.css'
 
 const Chat = () => {
   const [socket, setSocket] = useState(null);
@@ -44,23 +46,27 @@ const Chat = () => {
     }
 
   return (
-    <div>
-      <h1>Chat page</h1>
-      <div>
-      <div>
-        {messages.map((msg, i) => <div key={i}>{msg}</div>)}
+    <div className='chat-page'>
+      <SidePanel/>
+      <div className='main-panel'>
+        <h1>Chat page</h1>
+              <div>
+                <div>
+                  {messages.map((msg, i) => <div key={i}>{msg}</div>)}
+                </div>
+                <input
+                  type="text"
+                  placeholder='Message...'
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+                />
+                <button onClick={sendMessage} type="button" class="btn btn-primary ml-2">Send</button>
+              </div>
+            <button onClick={dummy} type="button" className="btn btn-primary m-4">Login Page</button>
+
       </div>
-      <input
-        type="text"
-        placeholder='Message...'
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-      />
-      <button onClick={sendMessage} type="button" class="btn btn-primary ml-2">Send</button>
     </div>
-      <button onClick={dummy} type="button" className="btn btn-primary m-4">Login Page</button>
-      </div>
   )
 }
 

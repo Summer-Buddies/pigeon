@@ -1,0 +1,99 @@
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    max-width: 250px;
+    border-right: 0.1rem solid black;
+}
+
+.menu {
+    margin: 1rem;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 2rem;
+    font-family: Mali;
+}
+
+h2 {
+    font-size: 1.4rem;
+    font-family: Mali;
+}
+
+input {
+  background-color: rgba(217, 217, 217, 0.1);
+}
+
+.search {
+  position: relative;
+  margin: 0.25rem 0rem;
+}
+
+.search input {
+  width: 100%;
+  padding: 0rem 2rem;
+  border: 1px solid white;
+  border-radius: 1rem;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  height: 1rem;
+  width: 1rem;
+}
+
+.friends {
+    display: flex;
+    justify-content: space-between;
+}
+
+.friends-icon {
+    height: 1.4rem;
+    width: 1.4rem;
+    margin-top: 0.1rem;
+}
+
+.messages {
+    display: flex;
+    justify-content: space-between;
+}
+
+.messages-plus {
+    margin-top: 0.4rem;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: auto 1rem 1rem 1rem;
+    border-radius: 1rem;
+    background-color: rgba(217, 217, 217, 0.1);
+    padding: 0.5rem;
+}
+
+.user .profile-pic {
+    height: 3rem;
+    width: 3rem;
+}
+
+.settings {
+    height: 2rem;
+    width: 2rem;
+    margin-bottom: 0.5rem;
+    margin-left: auto;
+}
+
+h3 {
+    font-size: 1rem;
+    font-family: Mali;
+}
+
+.name {
+    margin-left: 0.5rem;
+}
