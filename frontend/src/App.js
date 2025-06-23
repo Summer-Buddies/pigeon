@@ -11,6 +11,7 @@ import {
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Chat from './pages/Chat';
+import Settings from './pages/Settings';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </Router>
     </div>

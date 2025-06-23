@@ -77,7 +77,7 @@ const Login = () => {
           </form>
         </div>
         <div className='mascot'>
-          <img src='logo192.png' alt='pigeon mascot'/>
+          <img src='pigeon.png' alt='pigeon mascot'/>
         </div>
       </div>
     </div>
