@@ -3,6 +3,26 @@ html, .App {
   color: white;
 }
 
+.App h1 {
+  font-size: 2rem;
+  font-family: Mali;
+  font-weight: bold;
+}
+
+.App h2 {
+  font-size: 1.4rem;
+  font-family: Mali;
+}
+
+.App h3 {
+    font-size: 1rem;
+    font-family: Mali;
+}
+
+.name {
+    margin-left: 0.5rem;
+}
+
 .input-box {
   background-color: rgba(217, 217, 217, 0.1);
   border-radius: 25px;
@@ -12,11 +32,31 @@ html, .App {
   margin: 1rem auto;
 }
 
+.header {
+  background-color: rgba(217, 217, 217, 0.1);
+  padding: 1rem;
+  font-size: 1.6rem;
+  font-family: Mali;
+  font-weight: bold;
+}
+
+.main-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+a {
+    color: white;
+} 
+
 .button {
   border-radius: 25px;
   padding: 0.5rem 1.5rem;
   font-size: 1rem;
   font-weight: bold;
+  font-family: Mali;
 }
 
 .button:hover {
@@ -25,4 +65,16 @@ html, .App {
 
 .orange-button {
   background-color: rgba(192, 121, 66, 0.9);
+}
+
+.green-button {
+  background-color: rgba(65, 168, 117, 0.8);
+}
+
+.purple-button {
+  background-color: rgba(87, 52, 152, 0.8);
+}
+
+.yellow-button {
+  background-color: #C0A942;
 }

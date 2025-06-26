@@ -27,7 +27,7 @@ const Settings = () => {
 
             {/* Settings Panel */}
             <div className='settings-panel'>
-                <div className='back' onClick={() => navigate('/chat')}>
+                <div className='back' onClick={() => navigate(-1)}>
                     <HiArrowLeft/>
                     <h2>Back</h2>
                 </div>
