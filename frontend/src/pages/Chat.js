@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom';
 import { friends } from '../data/staticUsers.js'
 import '../components/SidePanel.js'
@@ -12,7 +11,6 @@ const Chat = () => {
   const [input, setInput] = useState('');
   const { id } = useParams();
   const [user, setUser] = useState(null);
-  const navigate = useNavigate()
   
   useEffect(() => {
     const userId = parseInt(id);
@@ -52,29 +50,30 @@ const Chat = () => {
     }
   };
 
-  const dummy = () =>{
-    navigate("/")
-  }
-
   return (
     <div className='chat-page'>
       <SidePanel/>
       <div className='main-panel'>
-        <h1>Chat page</h1>
-        <div>
-          <div>
+        <div className='header'>{user.name}</div>
+          <div className='message-history'>
             {messages.map((msg, i) => <div key={i}>{msg}</div>)}
           </div>
-          <input
-            type="text"
-            placeholder='Message...'
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-          />
-          <button onClick={sendMessage} type="button" className="btn btn-primary ml-2">Send</button>
-        </div>
-        <button onClick={dummy} type="button" className="btn btn-primary m-4">Login Page</button>
+          <div className='message'>
+            <input
+              type="text"
+              placeholder='Message...'
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+              className='text-message'
+            />
+            <div className='icons'>
+              <button onClick={sendMessage} type="button" className="btn ml-2">
+                <img src='/send.png' alt='send' className='send-icon'/>
+              </button>
+              <img src='/share.png' alt='share' className='share-icon'></img>
+            </div>
+          </div>
       </div>
     </div>
   )
