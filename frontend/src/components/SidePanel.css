@@ -39,6 +39,7 @@ input {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem;
+    cursor: pointer;
 }
 
 .friends-icon {
@@ -55,6 +56,7 @@ input {
 
 .messages-plus {
     margin-top: 0.4rem;
+    cursor: pointer;
 }
 
 .users {
@@ -72,6 +74,7 @@ input {
     border-radius: 1rem;
     background-color: rgba(217, 217, 217, 0.1);
     padding: 0.5rem;
+    cursor: pointer;
 }
 
 .user .profile-pic {
@@ -79,9 +82,14 @@ input {
     width: 3rem;
 }
 
+.user-profile .user {
+    cursor: auto;
+}
+
 .settings {
     height: 2rem;
     width: 2rem;
     margin-bottom: 0.5rem;
     margin-left: auto;
+    cursor: pointer;
 }
